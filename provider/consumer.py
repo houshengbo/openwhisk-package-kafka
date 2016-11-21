@@ -300,7 +300,7 @@ class ConsumerThread (Thread):
 
             while retry:
                 try:
-                    response = requests.post(self.triggerURL, json=payload, timeout=10.0)
+                    response = requests.post(self.triggerURL, verify=False, json=payload, timeout=10.0)
                     status_code = response.status_code
                     logging.info("[{}] Repsonse status code {}".format(self.trigger, status_code))
 

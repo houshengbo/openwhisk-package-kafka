@@ -66,7 +66,7 @@ def postTrigger(namespace, trigger):
         response.status_code = 409
     else:
         logging.info("[{}] Ensuring user has access rights to post a trigger".format(triggerFQN))
-        trigger_get_response = requests.get(body["triggerURL"])
+        trigger_get_response = requests.get(body["triggerURL"], verify=False)
         trigger_get_status_code = trigger_get_response.status_code
         logging.info("[{}] Repsonse status code from trigger authorization {}".format(triggerFQN,
                                                                                       trigger_get_status_code))
